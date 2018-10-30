@@ -14,7 +14,7 @@ public class seleniumdriver {
     public static WebDriver open(String browser){
                String path= System.getProperty("user.dir");
             if(browser.equals("chrome")){
-                System.setProperty("webdriver.chrome.driver",path+"/driver/chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver",path+"/drivers/chromedriver.exe");
                 driver = new ChromeDriver();
             }else if(browser.equals("ie")){
                 System.setProperty("webdriver.ie.driver",path+"/drivers/iedriver.exe");
