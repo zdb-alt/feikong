@@ -35,5 +35,9 @@ public class Element extends seleniumdriver {
         }
         return driver.findElements(by);
     }
+    public static void  确定按钮(){
+        Element.findelement(By.linkText("确定")).click();
+
+    }
 
 }
