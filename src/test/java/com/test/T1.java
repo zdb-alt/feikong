@@ -46,6 +46,7 @@ public class T1{
         driver.switchTo().frame(fram);
         Thread.sleep(6000);
         //点击“新增”按钮
+
         driver.findElement((By.id("add_228003"))).click();
         Thread.sleep(6000);
         // driver.findElement(By.xpath("//*[@id='df9fb874-ff33-4c4f-95d3-8d6e1e20a8e6']//label[1]")).click();
@@ -57,15 +58,13 @@ public class T1{
         WebElement fram2=Element.findelement(By.xpath("//div[@class=\"layui-tab-item layui-show\"]/iframe[1]"));
         driver.switchTo().frame(fram2);
         Thread.sleep(3000);
-        //借款金额文本框输入300
-        WebElement qian=Element.findelement(By.xpath("//*[@id=\"fieldlist-921710056\"]/tbody/tr[3]/td[4]/span/span/input[1]"));
-        //qian.clear();
-        qian.sendKeys("300");
         //勾选上“是否借款”按钮
         WebElement anniu= Element.findelement(By.id("isborrow_228003"));
         anniu.click();
         Boolean a=anniu.isSelected();
         Assert.assertTrue(a);
+        //借款金额文本框输入300
+         Element.findelement(By.xpath("//span[@class=\"k-numeric-wrap k-state-default k-expand-padding\"]/input")).sendKeys("300");
         //填写申请事由
         Element.findelement(By.id("memo_228003")).sendKeys("回家过年");
         //子表点击“新增”按钮
@@ -129,20 +128,22 @@ public class T1{
         WebElement frame8=Element.findelement(By.xpath("//*[@class=\"layui-tab-item layui-show\"]/iframe"));
         driver.switchTo().frame(frame8);
         Element.findelement(By.id("train")).click();
-
+        Element.findelement(By.xpath("//*[@id=\"grid_22800301\"]/div[2]/table/tbody/tr[2]/td[1]/label")).click();
+        Element.findelement(By.id("delete_22800301")).click();
+        Element.findelement(By.linkText("确定")).click();
         //定位到的元素可以使用下列方法
-       // WebElement a=Element.findelement(By.xpath("//*[@id=\"grid_22800301\"]/div[2]"));
-//        org.openqa.selenium.interactions.Actions actions =new org.openqa.selenium.interactions.Actions(driver);
-//        actions.dragAndDropBy(a,1000,1000).perform();
-//        Thread.sleep(4000);
+        //WebElement a=Element.findelement(By.xpath("//*[@id=\"grid_22800301\"]/div[2]"));
+        // org.openqa.selenium.interactions.Actions actions =new org.openqa.selenium.interactions.Actions(driver);
+        // actions.dragAndDropBy(a,1000,1000).perform();
+        //Thread.sleep(4000);
        //通过js实现拖拽操作（定位不到的元素）
         org.openqa.selenium.interactions.Actions actions =new org.openqa.selenium.interactions.Actions(driver);
-//        actions.moveToElement(a,444,465).perform();
+        //actions.moveToElement(a,444,465).perform();
         JavascriptExecutor js =(JavascriptExecutor)driver;
        js.executeScript(" document.getElementsByClassName(\"k-grid-content k-auto-scrollable\")[0].scrollTo(800,0)");
         Thread.sleep(4000);
-
-
+        Element.findelement(By.id("submit_228003")).click();
+        Element.findelement(By.linkText("确定")).click();
 
 
 
