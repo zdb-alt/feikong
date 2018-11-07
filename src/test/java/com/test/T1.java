@@ -137,7 +137,7 @@ public class T1{
         // actions.dragAndDropBy(a,1000,1000).perform();
         //Thread.sleep(4000);
        //通过js实现拖拽操作（定位不到的元素）
-        org.openqa.selenium.interactions.Actions actions =new org.openqa.selenium.interactions.Actions(driver);
+       // org.openqa.selenium.interactions.Actions actions =new org.openqa.selenium.interactions.Actions(driver);
         //actions.moveToElement(a,444,465).perform();
         JavascriptExecutor js =(JavascriptExecutor)driver;
        js.executeScript(" document.getElementsByClassName(\"k-grid-content k-auto-scrollable\")[0].scrollTo(800,0)");
@@ -145,8 +145,20 @@ public class T1{
         Element.findelement(By.id("submit_228003")).click();
         Element.findelement(By.linkText("确定")).click();
 
+        for (int i = 1; i <=3 ; i++) {
+        Element.findelement(By.linkText("审批")).click();
+        driver.switchTo().defaultContent();
+        //流程审批
+        WebElement frame9=Element.findelement(By.xpath("//div[@class=\"layui-layer-content\"]/iframe"));
+        driver.switchTo().frame(frame9);
+        //拖拽树状滚动条
+        js.executeScript("window.scrollTo(0,600)");
+        //点击同意按钮
+        Element.findelement(By.id("agreeButton")).click();
+        }
 
-
+        // document.getElementById("layui-layer-iframe14").contentWindow.window.scrollTo(0,800)
+        Thread.sleep(3000);
 
     }
 }
