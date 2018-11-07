@@ -144,8 +144,7 @@ public class T1{
         Thread.sleep(4000);
         Element.findelement(By.id("submit_228003")).click();
         Element.findelement(By.linkText("确定")).click();
-
-        for (int i = 1; i <=3 ; i++) {
+        //第一次审批
         Element.findelement(By.linkText("审批")).click();
         driver.switchTo().defaultContent();
         //流程审批
@@ -155,7 +154,25 @@ public class T1{
         js.executeScript("window.scrollTo(0,600)");
         //点击同意按钮
         Element.findelement(By.id("agreeButton")).click();
-        }
+        driver.switchTo().defaultContent();
+
+        //第二次审批
+        driver.switchTo().frame(fram2);
+        Thread.sleep(3000);
+        Element.findelement(By.linkText("审批")).click();
+        Thread.sleep(3000);
+        driver.switchTo().defaultContent();
+        //流程审批
+        Thread.sleep(3000);
+        WebElement frame10=Element.findelement(By.xpath("//div[@class=\"layui-layer-content\"]/iframe"));
+        driver.switchTo().frame(frame10);
+       // driver.switchTo().frame(frame9);
+        Thread.sleep(3000);
+        //拖拽树状滚动条
+        js.executeScript("window.scrollTo(0,600)");
+        //点击同意按钮
+        Element.findelement(By.id("agreeButton")).click();
+
 
         // document.getElementById("layui-layer-iframe14").contentWindow.window.scrollTo(0,800)
         Thread.sleep(3000);
