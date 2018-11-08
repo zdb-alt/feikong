@@ -173,7 +173,6 @@ public class T1{
         //点击同意按钮
         Element.findelement(By.id("agreeButton")).click();
 
-
         // document.getElementById("layui-layer-iframe14").contentWindow.window.scrollTo(0,800)
         Thread.sleep(3000);
 
