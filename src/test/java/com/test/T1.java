@@ -172,6 +172,7 @@ public class T1{
         js.executeScript("window.scrollTo(0,600)");
         //点击同意按钮
         Element.findelement(By.id("agreeButton")).click();
+        driver.switchTo().defaultContent();
 
         // document.getElementById("layui-layer-iframe14").contentWindow.window.scrollTo(0,800)
         Thread.sleep(3000);
